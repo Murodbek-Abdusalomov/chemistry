@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .container {
+            width: 1000px;
+            height: 1000px;
+        }
+        
+        .a {
+            width: 200px;
+            height: 500px;
+            border-bottom-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+            background-color: white;
+            border: 1px solid black;
+            border-top: 0;
+            transform: translate(500px, 500px);
+            position: relative;
+        }
+        
+        .b {
+            width: 200px;
+            height: 200px;
+            border-bottom-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+            background-color: deepskyblue;
+            border-top: 1px solid black;
+            transform: translate(0px, 300px);
+            position: absolute;
+        }
+        
+        .animation {
+            animation-name: rotate;
+            animation-duration: 10s;
+        }
+        
+        .animation-2 {
+            animation-name: rotate-2;
+            animation-duration: 10s;
+        }
+        
+        @keyframes rotate-2 {
+            100% {
+                transform: scale(0.2, 1.5);
+            }
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="a" onclick="animation()">
+            <div class="b">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var a = document.querySelector(".a");
+        var b = document.querySelector(".b");
+
+        function animation() {
+            a.classList.add("animation");
+            b.classList.add(animation - 2);
+        }
+    </script>
+</body>
+
+</html>
